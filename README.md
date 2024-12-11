@@ -19,15 +19,18 @@
 ```yaml
 public class SmsNotifier {
     public void sendSms(String phoneNumber, String message) {
-        System.out.println("Sending SMS to " + phoneNumber + " with message: " + message); }}
+        System.out.println("Sending SMS to " + phoneNumber + " with message: " + message);
+}}
  
 public class EmailNotifier {
     public void sendEmail(String email, String title, String message) {
-        System.out.println("Sending email to " + email + " with title: " + title + " and message: " + message);}}
+        System.out.println("Sending email to " + email + " with title: " + title + " and message: " + message);
+}}
  
 public class PigeonNotifier {
     public void sendPigeon(String address, Integer pigeonNumber, String message) {
-        System.out.println("Sending pigeon to " + address + " with message: " + message);}}
+        System.out.println("Sending pigeon to " + address + " with message: " + message);
+}}
 ```
  
 Една от основните задачи на програмата е съхранението на големи количества данни в структуриран формат и  предоставянето на механизми за съхранение и организация на тези данни, позволяващи бърз достъп и ефективност при търсенето и обработката им. Осъществява се контрол на достъпа до данните, защита на данните от неправомерен достъп и осигуряване на цялостност и съответствие на данните. Друга важна задача е предоставянето на възможност за извличането на специфична информация от базата данни за анализ, отчетност и вземане на решения. Това позволява откриването на тенденции, генерирането на отчети и вземането на решения на базата на наличните данни.
