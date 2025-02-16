@@ -185,8 +185,8 @@ SubscribtionRule е връзката между филтър и тип на но
 - Да се приложи Console Pattern за Console GUI.
 
 ## Използвана Литература
-- (Design Patterns)[https://refactoring.guru/design-patterns]
-- (Screaming Architecture)[https://blog.cleancoder.com/uncle-bob/2011/09/30/Screaming-Architecture.html]
+- [Design Patterns](https://refactoring.guru/design-patterns)
+- [Screaming Architecture](https://blog.cleancoder.com/uncle-bob/2011/09/30/Screaming-Architecture.html)
 
 ## Полезни Понятия
 - Coupling се отнася до степента на взаимозависимост между софтуерните модули. High Coupling означава, че модулите са тясно свързани, което води до зависимост между тях. Промени в един модул могат да засегнат други модули. Low Coupling означава, че модулите са независими един от друг. Промени в един модул оказват минимално влияние върху останалите.
