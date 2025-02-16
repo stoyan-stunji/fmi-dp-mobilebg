@@ -111,6 +111,9 @@ SubscribtionRule е връзката между филтър и тип на но
 - ListingCaretaker управлява стек от моментни снимки, запазвайки различните състояния на Listing. Позволява връщане назад в историята чрез метода restoreState(int).
 
 ![listing_history](https://github.com/stoyan-stunji/fmi-dp-mobilebg/blob/main/docs/listing_history.JPG)
+```yaml
+Фигура 3.
+```
 
 ## Седмица 09 - ID Генератор
 - Singleton Pattern е шаблон, който гарантира, че даден клас има само една единствена инстанция и предоставя глобална точка за достъп до него. Контролира достъпа до споделен ресурс - тук, всеки потребител има уникален номер, инкрементирайки номера на последния регистриран клиент.
@@ -129,6 +132,9 @@ SubscribtionRule е връзката между филтър и тип на но
 - За обработка на AND и OR операторите се използват AndFilter и OrFilter.
 
 ![parser](https://github.com/stoyan-stunji/fmi-dp-mobilebg/blob/main/docs/parser.JPG)
+```yaml
+Фигура 4.
+```
 
 ## Седмица 11 - История на Продукт
 - Memento Pattern е използван, за да се съхранява и възстановява състоянието на обект от тип Product. Това позволява връщане към предишни състояния – за операции по undo/redo;
@@ -139,7 +145,7 @@ SubscribtionRule е връзката между филтър и тип на но
 
 ![product_history](https://github.com/stoyan-stunji/fmi-dp-mobilebg/blob/main/docs/product_history.png)
 ```yaml
-Фигура 2.
+Фигура 5.
 ```
 
 ## Седмица 12 - Фабрика за Продукти
