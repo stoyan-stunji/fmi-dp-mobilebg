@@ -49,12 +49,28 @@
 - Приложението за продажби трябва да поддържа различни видове продукти. Например, в контекста на Mobile.bg, стандартните категории продукти могат да включват: кола, камион, яхта, част, аксесоар и т.н.
 Всеки от тези продукти ще наследява Product и ще разширява неговата функционалност със специфични характеристики.
 
-### Седмица 4 - Обява
+## Седмица 4 - Обява
 - Подобно на Седмица 2, тук за модула "Обява" отново е използван *Repository Pattern*;
 - Repository Pattern осигурява слой между бизнес логиката (ListingService) и съхранението на обяви (ListingRepository), абстрахирайки детайлите на достъпа до данни;
 - ListingRepository и неговата имплементация ListingRepositoryImplementation управляват съхранението, добавянето и изтриването на обяви;
 - ListingServiceImplementation предоставя методи за манипулация на обяви, като гарантира, че само регистрирани потребители могат да ги добавят или изтриват.
 
+## Седмица 5 - Абонаменти
+Задача за Седмица 5 е следната: *Разширете съществуващата система за нотификации, като внедрите правилните и необходими абстракции с оглед на преизползваемост, cohesion и coupling. Потребителите могат да се абонират за обяви, които отговарят на определени условия (напр. "Audi, дизел, 2005-2015"). Когато се създаде обява, отговаряща на зададените условия, трябва да се изпрати съответната нотификация. Трябва да използвате следните три класа без промени*
+
+```yaml
+public class SmsNotifier {
+    public void sendSms(String phoneNumber, String message) {
+        System.out.println("Sending SMS to " + phoneNumber + " with message: " + message); }}
+ 
+public class EmailNotifier {
+    public void sendEmail(String email, String title, String message) {
+        System.out.println("Sending email to " + email + " with title: " + title + " and message: " + message); }}
+ 
+public class PigeonNotifier {
+    public void sendPigeon(String address, Integer pigeonNumber, String message) {
+        System.out.println("Sending pigeon to " + address + " with message: " + message); }}
+```
 
 
 ## Showcase:
