@@ -91,7 +91,13 @@ SubscribtionRule е връзката между филтър и тип на но
 > N от M филтър – нотификацията се изпраща, ако поне N от M филтри са изпълнени.
 Например: "Искам поне 2 от 3 да са изпълнени – [дизел, Ауди, след 2003]".
 ```
+> *Solution:* Composite Pattern.
 
+- Composite Pattern е структурен шаблон, който позволява да изграждане на йерархии от обекти, където индивидуалните обекти и групите от обекти могат да се третират по един и същи начин. Това се постига чрез дефиниране на унифициран интерфейс, в случая Filter<T>, който може да бъде имплементиран както от отделни филтри - RangeFilter, ExactValueFilter, CaseInsensitiveFilter, така и от композиционни филтри AndFilter, OrFilter, NotFilter, NOfMFilter;
+- Компонентен интерфейс (Filter<T>): Всички филтри имплементират един и същ интерфейс Filter<T>, което осигурява унифициран начин за работа с тях;
+- Листови компоненти (Leaf Components): RangeFilter<T, V extends Comparable<V>>, ExactValueFilter<T, V> и CaseInsensitiveFilter<T>;
+Това са основните филтри, които изпълняват конкретна логика за филтриране на даден обект.
+- Композитни компоненти (Composite Components): AndFilter<T> – изисква всички вложени филтри да върнат true, за да върне true, OrFilter<T> – връща true, ако поне един от вложените филтри върне true, NotFilter<T> – обръща резултата на вложения филтър, и NOfMFilter<T> – връща true, ако поне n от вложените филтри върнат true.
 
 ## Showcase:
 1. Initial Demo - Shows how to add and delete users and listings;
