@@ -160,32 +160,37 @@ SubscribtionRule е връзката между филтър и тип на но
 ## Седмица 15 - Потребителски Интерфейс
 - Dependency Injection
 
-## Showcase:
-1. Initial Demo - Shows how to add and delete users and listings;
-2. Filters Demo - Shows how to filter listings;
-3. Subscribtion Demo - Shows how to subscribe to get notifications based on different filters;
-4. Listing History Demo - Shows the history of the changes made to a listing;
-5. Product History Demo - Shows the history of the changes made to a product and presents a graph;
-6. Parser Demo (WIP) - Shows how to search by filters;
+## Презентиране:
+1. Initial Demo - Показва как се добавят и изтриват потребители и обяви;
+2. Filters Demo - Показва как се филтрират обяви;
+3. Subscribtion Demo - Показва как регистриран потребител се абонира за известия въз основа на различни филтри;
+4. Listing History Demo - Показва историята на промените, направени в дадена обява;
+5. Product History Demo -  Показва историята на промените, направени в даден продукт, и представя графика;
+6. Parser Demo - Показва как се търсят обяви чрез филтри;
 7. Console:
-- Languages - German and English;
-- Registering;
-- Logging In;
-- Logging Out;
-- Adding & Deleting listings when logged in;
-- Viewing all listings and all users.
+- Езици - Немски и Английски;
+- Регистриране;
+- Влизане в системата;
+- Излизане от системата;
+- Добавяне и изтриване на обяви, когато потребител е влезъл в системата;
+- Преглед на всички обяви и всички потребители.
 
 ## Заключение:
-- оправи имената
 
 ## Fix:
-- Decouple the adding of a listing from Standard Input & Output;
-- Add the functionality from the Demo 2, 3, 4, 5 to the Console;
-- Fix (and finish) the GUI - dependency;
-- Fix the parser.
-- id gen изнеси
+- Decouple добавянето на обяви от Standard Input & Output чрез Dependency Injection;
+- Да се добавят функционалностите от Demo 2, 3, 4, 5 към Console GUI;
+- Да се (до)оправи Parser;
+- Да се изнесе ID Generator в отделен модул;
+- Да се приложи Console Pattern за Console GUI.
 
-## Понятия и използвана литература
+## Използвана Литература
+- (Design Patterns)[https://refactoring.guru/design-patterns]
+- (Screaming Architecture)[https://blog.cleancoder.com/uncle-bob/2011/09/30/Screaming-Architecture.html]
 
-## Fun Fact:
+## Полезни Понятия
+- Coupling се отнася до степента на взаимозависимост между софтуерните модули. High Coupling означава, че модулите са тясно свързани, което води до зависимост между тях. Промени в един модул могат да засегнат други модули. Low Coupling означава, че модулите са независими един от друг. Промени в един модул оказват минимално влияние върху останалите.
+- Cohesion се отнася до степента, в която елементите в даден модул работят заедно, за да изпълнят единна и добре дефинирана цел. High Cohesion означава, че елементите в модула са тясно свързани и се фокусират върху една конкретна отговорност. Low Cohesion означава, че елементите в модула са слабо свързани и изпълняват множество несвързани задачи, което затруднява поддръжката, разширяването и разбирането на кода.
+
+## Забавен Факт:
 - Името на програмата е базирано на тази песен: [Подуене Блус Бенд - Таратайка](https://www.youtube.com/watch?v=EqRddn_Tq9w)
