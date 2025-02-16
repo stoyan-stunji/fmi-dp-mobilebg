@@ -72,10 +72,9 @@ public class PigeonNotifier {
     public void sendPigeon(String address, Integer pigeonNumber, String message) {
         System.out.println("Sending pigeon to " + address + " with message: " + message); }}
 ```
-- *Solution:* Adapter Pattern & Observer Pattern дават ефективно решение на задачата.
-
-> Adapter Pattern се използва за интеграция на различните видове нотификации (SmsNotifier, EmailNotifier, PigeonNotifier, OnFootNotifier) към общ интерфейс SubscribtionType. Външните класове SmsNotifier, EmailNotifier, PigeonNotifier и OnFootNotifier имат различни методи за изпращане на съобщения (sendSms, sendEmail, sendPigeon, deliverOnFoot). За да се унифицира интерфейсът, са създадени адаптери (SmsSubscribtion, EmailSubscribtion, PigeonSubscribtion, OnFootSubscribtion), които имплементират SubscribtionType. Всеки адаптер преобразува извикванията на update() към съответния метод на оригиналния клас.
-> Observer Pattern се използва за управление на абонаментите и автоматично уведомяване на абонатите при нова обява. SubscribtionService играе ролята на Subject (източник на събития), който следи за нови обяви.
+> *Solution:* Adapter Pattern & Observer Pattern дават ефективно решение на задачата.
+- Adapter Pattern се използва за интеграция на различните видове нотификации (SmsNotifier, EmailNotifier, PigeonNotifier, OnFootNotifier) към общ интерфейс SubscribtionType. Външните класове SmsNotifier, EmailNotifier, PigeonNotifier и OnFootNotifier имат различни методи за изпращане на съобщения (sendSms, sendEmail, sendPigeon, deliverOnFoot). За да се унифицира интерфейсът, са създадени адаптери (SmsSubscribtion, EmailSubscribtion, PigeonSubscribtion, OnFootSubscribtion), които имплементират SubscribtionType. Всеки адаптер преобразува извикванията на update() към съответния метод на оригиналния клас.
+- Observer Pattern се използва за управление на абонаментите и автоматично уведомяване на абонатите при нова обява. SubscribtionService играе ролята на Subject (източник на събития), който следи за нови обяви.
 SubscribtionRule е връзката между филтър и тип на нотификация. При добавяне на нова обява, SubscribtionService проверява дали някой от абонатите отговаря на критериите и ако да – изпраща нотификация.
 
 ## Showcase:
