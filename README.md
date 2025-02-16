@@ -1,4 +1,4 @@
-# TARATAIKA.COM - *Based On Mobile.bg*
+# TARATAIKA.COM - Based On Mobile.bg
 
 СУ - ФМИ - Зимен семестър 2024/2025
 - Изготвил: Стоян Стоянов Иванов
