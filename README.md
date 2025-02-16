@@ -100,10 +100,13 @@ SubscribtionRule е връзката между филтър и тип на но
 - Композитни компоненти (Composite Components): AndFilter<T> – изисква всички вложени филтри да върнат true, за да върне true, OrFilter<T> – връща true, ако поне един от вложените филтри върне true, NotFilter<T> – обръща резултата на вложения филтър, и NOfMFilter<T> – връща true, ако поне n от вложените филтри върнат true.
 
 ## Седмица 08 - История На Обява
-- Memento
+- Memento Pattern е използван, за да се съхранява и възстановява състоянието на обект от тип Listing. Това позволява връщане към предишни състояния - за операции за undo/redo;
+- ListingOriginator отговаря за създаването на моментни снимки на текущото състояние и може да възстановява предишно състояние;
+- ListingMemento осигурява метод за извличане на това състояние - getListingSnapshot();
+- ListingCaretaker управлява стек от моментни снимки, запазвайки различните състояния на Listing. Позволява връщане назад в историята чрез метода restoreState(int).
 
 ## Седмица 09 - Генератар На Идентификационни Номера
-- Singleton
+- Singleton Pattern е шаблон, който гарантира, че даден клас има само една единствена инстанция и предоставя глобална точка за достъп до него. Контролира достъпа до споделен ресурс - тук, всеки потребител има уникален номер, инкрементирайки номера на последния регистриран клиент.
 
 ## Седмица 10 - Анализатор
 - Interpreter Pattern
@@ -139,12 +142,14 @@ SubscribtionRule е връзката между филтър и тип на но
 - Viewing all listings and all users.
 
 ## Заключение:
+- оправи имената
 
 ## Fix:
 - Decouple the adding of a listing from Standard Input & Output;
 - Add the functionality from the Demo 2, 3, 4, 5 to the Console;
-- Fix (and finish) the GUI;
+- Fix (and finish) the GUI - dependency;
 - Fix the parser.
+- id gen изнеси
 
 ## Понятия и използвана литература
 
