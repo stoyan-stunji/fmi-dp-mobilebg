@@ -37,9 +37,9 @@
 ```
 
 ## Седмица 02 - Потребители
-- Repository Pattern е модел за проектиране на софтуер, който действа като междинен слой между бизнес логиката на приложението (UserService) и съхранението на данни (UserRepository);
+- Repository Pattern е модел за проектиране на софтуер, който действа като междинен слой между бизнес логиката на приложението UserService и съхранението на данни UserRepository;
 - Основната му цел е да осигури структуриран и стандартизиран начин за достъп, управление и манипулиране на данни, като същевременно абстрахира детайлите на технологията за съхранение чрез интерфейса UserRepository и неговата имплементация UserRepositoryImplementation;
-- В този контекста, UserServiceImplementation действа като посредник, като осигурява методи за добавяне (addUser), изтриване (deleteUser) и търсене на потребители (getUserById), без да се налага директен достъп до вътрешното хранилище (storage);
+- В този контекста, UserServiceImplementation действа като посредник, като осигурява методи за добавяне - addUser, изтриване - deleteUser, и търсене на потребители - getUserById, без да се налага директен достъп до вътрешното хранилище storage;
 - Това позволява лесна подмяна или разширение на начина, по който се съхраняват данните (например, вместо HashMap, може да се използва база данни), без да се променя бизнес логиката на приложението;
 - Repository Pattern работи като библиотекар между програмата и данните – вместо UserService директно да търси и манипулира потребители, той използва UserRepository, който се грижи за тяхното съхранение и достъп.
 
@@ -51,13 +51,13 @@
 
 ## Седмица 04 - Обява
 - Подобно на Седмица 2, тук за "Обява" отново е използван Repository Pattern;
-- Repository Pattern осигурява слой между бизнес логиката (ListingService) и съхранението на обяви (ListingRepository), абстрахирайки детайлите на достъпа до данни;
+- Repository Pattern осигурява слой между бизнес логиката ListingService и съхранението на обяви ListingRepository, абстрахирайки детайлите на достъпа до данни;
 - ListingRepository и неговата имплементация ListingRepositoryImplementation управляват съхранението, добавянето и изтриването на обяви;
 - ListingServiceImplementation предоставя методи за манипулация на обяви, като гарантира, че само регистрирани потребители могат да ги добавят или изтриват.
 
 ## Седмица 05 - Филтри
 - Extractor Pattern се използва за извличане на специфични данни от обект по структуриран и модулен начин.
-- В този код той е реализиран чрез интерфейса FieldExtractor<T, V>, който дефинира метод extractValue(T var). FieldExtractor<T, V> интерфейс декларира метод extractValue(T var), който извлича определено поле от даден обект T и го връща като стойност от тип V. Интерфейсът Filter<T> дефинира метода visit(T var), който проверява дали даден обект отговаря на определени критерии.
+- В този код той е реализиран чрез интерфейса FieldExtractor, който дефинира метод extractValue(T). FieldExtractor интерфейс декларира метод extractValue(T), който извлича определено поле от даден обект T и го връща като стойност от тип V. Интерфейсът Filter дефинира метода visit(T), който проверява дали даден обект отговаря на определени критерии.
 - В крайна сметка, Filter и FieldExtractor работят заедно, като FieldExtractor първо извлича нужната стойност от обекта, а Filter я използва за валидация или филтриране.
 
 ## Седмица 06 - Абонаменти
@@ -78,7 +78,7 @@ public class PigeonNotifier {
         System.out.println("Sending pigeon to " + address + " with message: " + message); }}
 ```
 > *Solution:* Adapter Pattern & Observer Pattern дават ефективно решение на задачата.
-- Adapter Pattern се използва за интеграция на различните видове нотификации (SmsNotifier, EmailNotifier, PigeonNotifier, OnFootNotifier) към общ интерфейс SubscribtionType. Външните класове SmsNotifier, EmailNotifier, PigeonNotifier и OnFootNotifier имат различни методи за изпращане на съобщения (sendSms, sendEmail, sendPigeon, deliverOnFoot). За да се унифицира интерфейсът, са създадени адаптери (SmsSubscribtion, EmailSubscribtion, PigeonSubscribtion, OnFootSubscribtion), които имплементират SubscribtionType. Всеки адаптер преобразува извикванията на update() към съответния метод на оригиналния клас.
+- Adapter Pattern се използва за интеграция на различните видове нотификации - SmsNotifier, EmailNotifier, PigeonNotifier, OnFootNotifier, към общ интерфейс SubscribtionType. Тези външни класове имат различни методи за изпращане на съобщения - sendSms, sendEmail, sendPigeon, deliverOnFoot съответно. За да се унифицира интерфейсът, са създадени адаптери - SmsSubscribtion, EmailSubscribtion, PigeonSubscribtion, OnFootSubscribtion, които имплементират SubscribtionType. Всеки адаптер преобразува извикванията на update() към съответния метод на оригиналния клас.
 - Observer Pattern се използва за управление на абонаментите и автоматично уведомяване на абонатите при нова обява. SubscribtionService играе ролята на Subject (източник на събития), който следи за нови обяви.
 SubscribtionRule е връзката между филтър и тип на нотификация. При добавяне на нова обява, SubscribtionService проверява дали някой от абонатите отговаря на критериите и ако да – изпраща нотификация.
 
@@ -99,10 +99,10 @@ SubscribtionRule е връзката между филтър и тип на но
 > *Solution:* Composite Pattern.
 
 - Composite Pattern е структурен шаблон, който позволява да изграждане на йерархии от обекти, където индивидуалните обекти и групите от обекти могат да се третират по един и същи начин. Това се постига чрез дефиниране на унифициран интерфейс, в случая Filter<T>, който може да бъде имплементиран както от отделни филтри - RangeFilter, ExactValueFilter, CaseInsensitiveFilter, така и от композиционни филтри AndFilter, OrFilter, NotFilter, NOfMFilter;
-- Компонентен интерфейс (Filter<T>): Всички филтри имплементират един и същ интерфейс Filter<T>, което осигурява унифициран начин за работа с тях;
-- Листови компоненти (Leaf Components): RangeFilter<T, V extends Comparable<V>>, ExactValueFilter<T, V> и CaseInsensitiveFilter<T>;
+- Компонентен интерфейс (Filter<T>): Всички филтри имплементират един и същ интерфейс Filter, което осигурява унифициран начин за работа с тях;
+- Листови компоненти (Leaf Components): RangeFilter, ExactValueFilter и CaseInsensitiveFilter;
 Това са основните филтри, които изпълняват конкретна логика за филтриране на даден обект.
-- Композитни компоненти (Composite Components): AndFilter<T> – изисква всички вложени филтри да върнат true, за да върне true, OrFilter<T> – връща true, ако поне един от вложените филтри върне true, NotFilter<T> – обръща резултата на вложения филтър, и NOfMFilter<T> – връща true, ако поне n от вложените филтри върнат true.
+- Композитни компоненти (Composite Components): AndFilter – изисква всички вложени филтри да върнат true, за да върне true, OrFilter – връща true, ако поне един от вложените филтри върне true, NotFilter – обръща резултата на вложения филтър, и NOfMFilter – връща true, ако поне n от вложените филтри върнат true.
 
 ## Седмица 08 - История на Обява
 - Memento Pattern е използван, за да се съхранява и възстановява състоянието на обект от тип Listing. Това позволява връщане към предишни състояния - за операции за undo/redo;
