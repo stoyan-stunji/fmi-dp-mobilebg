@@ -213,8 +213,11 @@ SubscribtionRule е връзката между филтър и тип на но
 ## Използвана Литература
 - [Design Patterns](https://refactoring.guru/design-patterns)
 - [Screaming Architecture](https://blog.cleancoder.com/uncle-bob/2011/09/30/Screaming-Architecture.html)
+- [SOLID Principles](https://en.wikipedia.org/wiki/SOLID)
+- [OOP Principles 1](https://github.com/stoyan-stunji/fmi-oop-database)
+- [OOP Principles 2](https://github.com/stoyan-stunji/oop-autumn)
 
-## Полезни Понятия
+## Понятия
 - Coupling се отнася до степента на взаимозависимост между софтуерните модули. High Coupling означава, че модулите са тясно свързани, което води до зависимост между тях. Промени в един модул могат да засегнат други модули. Low Coupling означава, че модулите са независими един от друг. Промени в един модул оказват минимално влияние върху останалите.
 - Cohesion се отнася до степента, в която елементите в даден модул работят заедно, за да изпълнят единна и добре дефинирана цел. High Cohesion означава, че елементите в модула са тясно свързани и се фокусират върху една конкретна отговорност. Low Cohesion означава, че елементите в модула са слабо свързани и изпълняват множество несвързани задачи, което затруднява поддръжката, разширяването и разбирането на кода.
 
