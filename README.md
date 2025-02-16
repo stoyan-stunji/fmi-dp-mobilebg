@@ -55,9 +55,9 @@
 - ListingRepository и неговата имплементация ListingRepositoryImplementation управляват съхранението, добавянето и изтриването на обяви;
 - ListingServiceImplementation предоставя методи за манипулация на обяви, като гарантира, че само регистрирани потребители могат да ги добавят или изтриват.
 
-## Седмица 5 - Абонаменти
-- Задачата за Седмица 5 е следната: *
-*Разширете съществуващата система за нотификации, като внедрите правилните и необходими абстракции с оглед на преизползваемост, cohesion и coupling. Потребителите могат да се абонират за обяви, които отговарят на определени условия (напр. "Audi, дизел, 2005-2015"). Когато се създаде обява, отговаряща на зададените условия, трябва да се изпрати съответната нотификация. Трябва да използвате следните три класа без промени*
+## Седмица 6 - Абонаменти
+- Задачата за Седмица 6 е следната:
+*Разширете съществуващата система за нотификации, като внедрите правилните и необходими абстракции с оглед на преизползваемост, cohesion и coupling. Потребителите могат да се абонират за обяви, които отговарят на определени условия (напр. "Audi, дизел, 2005-2015"). Когато се създаде обява, отговаряща на зададените условия, трябва да се изпрати съответната нотификация. Трябва да използвате следните три класа без промени:*
 
 ```yaml
 public class SmsNotifier {
@@ -72,7 +72,11 @@ public class PigeonNotifier {
     public void sendPigeon(String address, Integer pigeonNumber, String message) {
         System.out.println("Sending pigeon to " + address + " with message: " + message); }}
 ```
+- *Solution:* Adapter Pattern & Observer Pattern дават ефективно решение на задачата.
 
+> Adapter Pattern се използва за интеграция на различните видове нотификации (SmsNotifier, EmailNotifier, PigeonNotifier, OnFootNotifier) към общ интерфейс SubscribtionType. Външните класове SmsNotifier, EmailNotifier, PigeonNotifier и OnFootNotifier имат различни методи за изпращане на съобщения (sendSms, sendEmail, sendPigeon, deliverOnFoot). За да се унифицира интерфейсът, са създадени адаптери (SmsSubscribtion, EmailSubscribtion, PigeonSubscribtion, OnFootSubscribtion), които имплементират SubscribtionType. Всеки адаптер преобразува извикванията на update() към съответния метод на оригиналния клас.
+> Observer Pattern се използва за управление на абонаментите и автоматично уведомяване на абонатите при нова обява. SubscribtionService играе ролята на Subject (източник на събития), който следи за нови обяви.
+SubscribtionRule е връзката между филтър и тип на нотификация. При добавяне на нова обява, SubscribtionService проверява дали някой от абонатите отговаря на критериите и ако да – изпраща нотификация.
 
 ## Showcase:
 1. Initial Demo - Shows how to add and delete users and listings;
