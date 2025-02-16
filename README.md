@@ -194,3 +194,4 @@ SubscribtionRule е връзката между филтър и тип на но
 
 ## Забавен Факт:
 - Името на програмата е базирано на тази песен: [Подуене Блус Бенд - Таратайка](https://www.youtube.com/watch?v=EqRddn_Tq9w)
+![poduene](https://github.com/stoyan-stunji/fmi-dp-mobilebg/blob/main/docs/poduene.jpg)
