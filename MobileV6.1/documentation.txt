@@ -1,0 +1,43 @@
+TARATAIKA.COM - Based On Mobile.bg
+
+СУ - ФМИ - Зимен семестър 2024/2025
+Изготвил: Стоян Стоянов Иванов
+Специалност: Информатика, 3 курс
+Факултетен номер: 9MI0400132
+Ръководител на курса: Филип Янков
+
+Showcase:
+1. Initial Demo - Shows how to add and delete users and listings;
+2. Filters Demo - Shows how to filter listings;
+3. Subscribtion Demo - Shows how to subscribe to get notifications based on different filters;
+4. Listing History Demo - Shows the history of the changes made to a listing;
+5. Product History Demo - Shows the history of the changes made to a product and presents a graph;
+6. Parser Demo (WIP) - Shows how to search by filters;
+7. Console:
+- Languages - German and English;
+- Registering;
+- Logging In;
+- Logging Out;
+- Adding & Deleting listings when logged in;
+- Viewing all listings and all users.
+
+Patterns:
+- User - Repository Pattern;
+- Subscribtions - Observer Pattern;
+- Products - Factory Pattern;
+- Parser - Interpreter Pattern;
+- Listings - Repository Pattern;
+- Languages - Strategy Pattern;
+- History - Memento Pattern;
+- Filters - Composite Pattern;
+- Commands - Command Pattern;
+- Console - OOP Principles.
+
+Fix:
+- Decouple the adding of a listing from Standard Input & Output;
+- Add the functionality from the Demo 2, 3, 4, 5 to the Console;
+- Fix (and finish) the GUI;
+- Fix the parser.
+
+Fun Fact:
+- Името на програмата е базирано на тази песен: [Подуене Блус Бенд - Таратайка](https://www.youtube.com/watch?v=EqRddn_Tq9w)
