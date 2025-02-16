@@ -31,7 +31,9 @@
 - Чат (между купувач и продавач).
 
 ![Фигура 1.](https://github.com/stoyan-stunji/fmi-dp-mobilebg/blob/main/docs/diagram.png)
-
+```yaml
+Фигура 1.
+```
 
 
 
