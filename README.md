@@ -129,6 +129,9 @@ SubscribtionRule е връзката между филтър и тип на но
 - В допълнение е имплементиран клас ProductGraph, който генерира линейна графика, показваща направените промените в цената на определен продукт на дадена дата. Представен е и средната цена.
 
 ![product_history](https://github.com/stoyan-stunji/fmi-dp-mobilebg/blob/main/docs/product_history.png)
+```yaml
+Фигура 2.
+```
 
 ## Седмица 12 - Фабрика за Продукти
 - Factory
