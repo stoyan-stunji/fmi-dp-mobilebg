@@ -113,22 +113,19 @@ For example: "I want at least 2 out of 3 to be satisfied – [diesel, Audi, afte
 
 ![product_history](https://github.com/stoyan-stunji/fmi-dp-mobilebg/blob/main/docs/product_history.png)
 
-## Седмица 12 - Фабрика за Продукти
-- Factory Pattern предоставя интерфейс за създаване на обекти в суперклас, като позволява на подкласовете да определят типа на създаваните обекти;
-- Creator: Интерфейс, който декларира „фабричния“ метод;
-- Concrete Creator: Всеки конкретен създател е отговорен за създаването на определен продукт - CarCreator, TruckCreator, YachtCreator и т.н.;
-- Product и конкретните продукти от Седмица 3: Дефинира общите характеристики на обектите.
+## **Week 12** - **Product Factory**
+- **Factory Pattern** provides an interface for creating objects in a superclass, allowing subclasses to determine the type of objects to be created;
+    - `Creator`: An interface that declares the “factory” method;
+    - `Concrete Creators`: Each concrete creator is responsible for creating a specific product - `CarCreator`, `TruckCreator`, `YachtCreator` and etc.;
+    - `Product` and the concrete products from **Week 03**: Define the common characteristics of the objects.
 
-## Седмица 13 - Езици
-- Strategy Pattern e поведенчески шаблон, който позволява да се дефинира семейство от поведения, които да са в отделни класове и са взаимнозаменяеми по време на изпълнение. Капсулира се множество алгоритми и/или поведения, наречени стратегии, в случая езиците английски и немски. Клиентът, тук - потребителя, през конзолата може да сменя различни стратегии т.е. езиците, докато използва програмата;
-- Клас Context възлага задачата на обект стратегия и съдържа препратка към него. Той служи като посредник между клиента и стратегията. Дефакто от него „дръпваме“ нужното съобщение, което да се изпише на конзолата;
-- Strategy Interface: Определя набор от методи, които всички конкретни стратегии трябва да имплементират;
-- Тъй като комуникацията между компонентите е decoupled, контекстът не е необходимо да знае точните детайли за това как всяка стратегия изпълнява задачата.
+## **Week 13** - **Languages**
+- **Strategy Pattern** is a behavioral design pattern that allows defining a family of behaviors in separate classes, which can be interchanged at runtime. It encapsulates multiple algorithms and/or behaviors, called strategies - in this case, the `English` and `German` languages. The client, here the user, can switch between different strategies i.e. languages via the console while using the program;
+- `LanguageContext` class delegates the task to a strategy object and holds a reference to it. It acts as an intermediary between the client and the strategy. Essentially, it “pulls” the necessary message to be displayed on the console;
+- The `Strategy` interface defines a set of methods that all concrete strategies must implement;
+- Since communication between components is **decoupled**, the context does not need to know the exact details of how each strategy performs the task.
 
 ![languages](https://github.com/stoyan-stunji/fmi-dp-mobilebg/blob/main/docs/languages.png)
-```yaml
-Фигура 6.
-```
 
 ## Седмица 14 - Конзола
 - Command Paterrn e поведенчески шаблон, който преобразува заявката в самостоятелен обект, наречен команда. С помощта на този шаблон може да се „улови“ всеки компонент на заявката, включително обекта, който притежава метода, параметрите на метода и самия метод;
