@@ -1,39 +1,26 @@
-# TARATAIKA.COM - Based On Mobile.bg
+# TARATAIKA.BG
 
-СУ - ФМИ - Зимен семестър 2024/2025
-- Изготвил: Стоян Стоянов Иванов
-- Специалност: Информатика, 3 курс
-- Ръководител на курса: Филип Янков
+- This project was developed as part of the course "Design Patterns" at Sofia University, FMI. It was developed over the course of one academic semester, during which various methodologies for design, analysis and implementation were applied. The code was expanded each week in accordance with the requirements of the assigned tasks with improvements, optimizations and the addition of new functionalities carried out.
 
-## Увод
-- Проектът е разработван в продължение на един академичен семестър, като в процеса на работа са прилагани различни методологии за проектиране, анализ и имплементация. Изходният код е периодично разширяван и допълван в съответствие с изискванията на възложените задания, като всяка седмица са извършвани подобрения, оптимизации и добавяне на нови функционалности.
-
-## Седмица 01 - Софтуерна архитектура. Какво е Mobile.bg? 
-Какво трябва да съдържа приложението?
-- Обява - запазване и редактиране;
-- Колекция от обяви;
-- Спонсорирана обява;
-- Отзиви;
-- История на цените;
-
-- Филтър;
-- Търсене;
-
-- Купувач;
-- Продавач;
-- Гост;
-- Къщи за превозни средства/Dealership;
-
-- Превозни средства;
-- Части;
-- Услуги;
-
-- Чат (между купувач и продавач).
+## Week 01 - Software Architecture. What is Mobile.bg? 
+What should the application include?
+- Listing (Create and Edit);
+- Collection of listings;
+- Sponsored listing;
+- Reviews;
+- Price history;
+- Filter;
+- Search;
+- Buyer;
+- Seller;
+- Guest;
+- Dealerships;
+- Vehicles;
+- Parts;
+- Services;
+- Chat (between Buyer and Seller).
 
 ![figure_1](https://github.com/stoyan-stunji/fmi-dp-mobilebg/blob/main/docs/diagram.png)
-```yaml
-Фигура 1.
-```
 
 ## Седмица 02 - Потребители
 - Repository Pattern е модел за проектиране на софтуер, който действа като междинен слой между бизнес логиката на приложението UserService и съхранението на данни UserRepository;
