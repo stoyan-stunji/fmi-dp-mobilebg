@@ -2,55 +2,50 @@
 
 - This project was developed as part of the course "Design Patterns" at Sofia University, FMI. It was developed over the course of one academic semester, during which various methodologies for design, analysis and implementation were applied. The code was expanded each week in accordance with the requirements of the assigned tasks with improvements, optimizations and the addition of new functionalities carried out.
 
-## Week 01 - Software Architecture. What is Mobile.bg? 
+## **Week 01** - Software Architecture. What is **Mobile.bg**? 
 What should the application include?
-- Listing (Create and Edit);
-- Collection of listings;
-- Sponsored listing;
-- Reviews;
-- Price history;
-- Filter;
-- Search;
-- Buyer;
-- Seller;
-- Guest;
-- Dealerships;
-- Vehicles;
-- Parts;
-- Services;
-- Chat (between Buyer and Seller).
+- `Listing` (Create and Edit);
+- `Collection of listings`;
+- `Sponsored listing`;
+- `Reviews`;
+- `Price history`;
+- `Filter`;
+- `Search`;
+- `Buyer`;
+- `Seller`;
+- `Guest`;
+- `Dealerships`;
+- `Vehicles`;
+- `Parts`;
+- `Services`;
+- `Chat` (between `Buyer` and `Seller`).
 
 ![figure_1](https://github.com/stoyan-stunji/fmi-dp-mobilebg/blob/main/docs/diagram.png)
 
-## Седмица 02 - Потребители
-- Repository Pattern е модел за проектиране на софтуер, който действа като междинен слой между бизнес логиката на приложението UserService и съхранението на данни UserRepository;
-- Основната му цел е да осигури структуриран и стандартизиран начин за достъп, управление и манипулиране на данни, като същевременно абстрахира детайлите на технологията за съхранение чрез интерфейса UserRepository и неговата имплементация UserRepositoryImplementation;
-- В този контекста, UserServiceImplementation действа като посредник, като осигурява методи за добавяне - addUser, изтриване - deleteUser, и търсене на потребители - getUserById, без да се налага директен достъп до вътрешното хранилище storage;
-- Това позволява лесна подмяна или разширение на начина, по който се съхраняват данните (например, вместо HashMap, може да се използва база данни), без да се променя бизнес логиката на приложението;
-- Repository Pattern работи като библиотекар между програмата и данните – вместо UserService директно да търси и манипулира потребители, той използва UserRepository, който се грижи за тяхното съхранение и достъп.
+## **Week 02** - **Users**
+- **Repository Pattern** is a design pattern that acts as an intermediary layer between the application's business logic (`UserService`) and the data storage layer (`UserRepository`);
+- Its main purpose is to provide a structured and standardized way to access, manage and manipulate data, while abstracting the details of the storage technology through the interface `UserRepository` and its implementation - `UserRepositoryImplementation`. In this context, `UserServiceImplementation` acts as a mediator by providing methods for adding - `addUser`, deleting - `deleteUser`, and retrieving users - `getUserById`, without requiring direct access to the internal storage;
+- This allows easy replacement or extension of the way data is stored (for example, instead of a HashMap, a Database can be used) without modifying the application's business logic - it functions like a librarian between the program and the data. Instead of `UserService` directly searching for and manipulating users, it uses `UserRepository`, which is responsible for their storage and access.
 
-## Седмица 03 - Продукти
-- Основната идея на тази седмица е тясно свързана с понятието "преизползваемост" на кода. В софтуерното инженерство преизползваемостта играе ключова роля за намаляване на дублирането на код и улесняване на бъдещи модификации. Неформално казано, ако след време се наложи създаването на подобно приложение, но за продажба на друг тип продукти, например козметика, кодът трябва да бъде структуриран така, че 70-80% от вече написаното да може да бъде използвано повторно;
-- За постигането на тази цел се прилага принципът на абстракцията и се дефинира основен клас Product, който служи като родител за всички специфични типове продукти. В обектно-ориентираното програмиране това се постига чрез създаване на абстрактен клас или интерфейс, който да дефинира общото поведение на всички продукти;
-- Приложението за продажби трябва да поддържа различни видове продукти. Например, в контекста на Mobile.bg, стандартните категории продукти могат да включват: кола, камион, яхта, част, аксесоар и т.н.
-Всеки от тези продукти ще наследява Product и ще разширява неговата функционалност със специфични характеристики.
+## **Week 03** - **Products**
+- The main idea of this week is closely related to the concept **reusability**. In software engineering, reusability plays a key role in reducing code duplication and facilitating future modifications. Informally speaking, if at some point it becomes necessary to create a similar application, but for selling a different type of products, for example **cosmetics**, the code should be structured in such a way that **70–80%** of what has already been written can be reused;
+- To achieve this goal, the principle of abstraction is applied by defining a base class `Product`, which serves as a parent for all specific product types. In OOP, this is accomplished by creating an abstract class or interface that defines the common behavior of all products;
+- The sales application must support different types of products. For example, in the context of `Mobile.bg`, the standard product categories may include: car, truck, yacht, part, accessory, etc. Each of these products will inherit from `Product` and extend its functionality with specific characteristics.
 
-## Седмица 04 - Обява
-- Подобно на Седмица 2, тук за "Обява" отново е използван Repository Pattern;
-- Repository Pattern осигурява слой между бизнес логиката ListingService и съхранението на обяви ListingRepository, абстрахирайки детайлите на достъпа до данни;
-- ListingRepository и неговата имплементация ListingRepositoryImplementation управляват съхранението, добавянето и изтриването на обяви;
-- ListingServiceImplementation предоставя методи за манипулация на обяви, като гарантира, че само регистрирани потребители могат да ги добавят или изтриват.
+## **Week 04** - **Listing**
+- Similar to **Week 02**, the **Repository Pattern** has again been used here for the **Listing**;
+- It provides a layer between the business logic and the listing storage, abstracting the details of data access. `ListingRepository` and `ListingRepositoryImplementation` manage the storage, addition and deletion of listings. `ListingService` and `ListingServiceImplementation` provide methods for manipulating listings, ensuring that only registered users can add or delete them.
 
-## Седмица 05 - Филтри
-- Extractor Pattern се използва за извличане на специфични данни от обект по структуриран и модулен начин.
-- В този код той е реализиран чрез интерфейса FieldExtractor, който дефинира метод extractValue(T). FieldExtractor интерфейс декларира метод extractValue(T), който извлича определено поле от даден обект T и го връща като стойност от тип V. Интерфейсът Filter дефинира метода visit(T), който проверява дали даден обект отговаря на определени критерии.
-- В крайна сметка, Filter и FieldExtractor работят заедно, като FieldExtractor първо извлича нужната стойност от обекта, а Filter я използва за валидация или филтриране.
+## **Week 05** - **Filters**
+- **Extractor Pattern** is used to retrieve specific data from an object in a structured and modular way;
+- In this code, it is implemented through the interface `FieldExtractor`, which defines the method `extractValue(T)` - fetches a specific field from a given object `T` and returns it as a value of type `V`. The interface `Filter` defines the method `visit(T)`, which checks whether a given object meets certain criteria;
+- Ultimately, `Filter` and `FieldExtractor` work together, where `FieldExtractor` first extracts the required value from the object and `Filter` then uses it for validation;
+- Three specific filters were added: `RangeFilter` - checks whether a field's value falls within a minimum and maximum range, `ExactValueFilter` - checks if a field equals a specific value using exact equality, and `CaseInsensitiveFilter` - checks whether a string field of an object matches a given string, ignoring case.
 
-## Седмица 06 - Абонаменти
-- Задачата за Седмица 6 е следната:
-*Разширете съществуващата система за нотификации, като внедрите правилните и необходими абстракции с оглед на преизползваемост, cohesion и coupling. Потребителите могат да се абонират за обяви, които отговарят на определени условия (напр. "Audi, дизел, 2005-2015"). Когато се създаде обява, отговаряща на зададените условия, трябва да се изпрати съответната нотификация. Трябва да използвате следните три класа без промени:*
+## **Week 06** - **Subscribtions**
+- The task for **Week 06** is as follows: *Extend the existing notification system by implementing the appropriate and necessary abstractions with regard to **reusability**, **cohesion** and **coupling**. Users can subscribe to listings that match specific criteria (e.g., "Audi, diesel, 2005–2015"). When a listing that meets the specified criteria is created, the corresponding notification must be sent. You must use the following three classes without modifications:*
 
-```yaml
+```yaml java
 public class SmsNotifier {
     public void sendSms(String phoneNumber, String message) {
         System.out.println("Sending SMS to " + phoneNumber + " with message: " + message); }}
@@ -63,77 +58,60 @@ public class PigeonNotifier {
     public void sendPigeon(String address, Integer pigeonNumber, String message) {
         System.out.println("Sending pigeon to " + address + " with message: " + message); }}
 ```
-> *Solution:* Adapter Pattern & Observer Pattern дават ефективно решение на задачата.
-- Adapter Pattern се използва за интеграция на различните видове нотификации - SmsNotifier, EmailNotifier, PigeonNotifier, OnFootNotifier, към общ интерфейс SubscribtionType. Тези външни класове имат различни методи за изпращане на съобщения - sendSms, sendEmail, sendPigeon, deliverOnFoot съответно. За да се унифицира интерфейсът, са създадени адаптери - SmsSubscribtion, EmailSubscribtion, PigeonSubscribtion, OnFootSubscribtion, които имплементират SubscribtionType. Всеки адаптер преобразува извикванията на update() към съответния метод на оригиналния клас.
-- Observer Pattern се използва за управление на абонаментите и автоматично уведомяване на абонатите при нова обява. SubscribtionService играе ролята на Subject (източник на събития), който следи за нови обяви.
-SubscribtionRule е връзката между филтър и тип на нотификация. При добавяне на нова обява, SubscribtionService проверява дали някой от абонатите отговаря на критериите и ако да – изпраща нотификация.
+#### Solution: **Adapter Pattern** and **Observer Pattern**
+- **Adapter Pattern** is used to integrate the different types of notifications - `SmsNotifier`, `EmailNotifier`, `PigeonNotifier` and `OnFootNotifier` - into a common interface, called `SubscribtionType`. These external classes have different methods for sending messages - `sendSms`, `sendEmail`, `sendPigeon` and `deliverOnFoot`, respectively. To unify the interface, adapters have been created - `SmsSubscribtion`, `EmailSubscribtion`, `PigeonSubscribtion` and `OnFootSubscribtion`, which implement `SubscribtionType`. Each adapter converts calls to `update()` into the corresponding method of the original class;
+- **Observer Pattern** is used to manage subscriptions and automatically notify subscribers when a new listing is created. `SubscribtionService` plays the role of the `Subject` i.e. `Event source` that monitors new listings. `SubscribtionRule` represents the link between a filter and a notification type. When a new listing is added, `SubscribtionService` checks whether any subscribers match the criteria and, if so, sends a notification.
 
 ![subscribtion](https://github.com/stoyan-stunji/fmi-dp-mobilebg/blob/main/docs/subscribtion.JPG)
+
+## **Week 07** - **Composite Filters**
+- The task for Week 7 is as follows: *Currently, NotificationRule contains an array of rules that NotificationService requires to be fully satisfied before sending a notification. This means that all conditions in the list must be met simultaneously. Clients require the ability to define more complex logical operations between filters in order to set more flexible notification rules. For this purpose, the following types of logical operations must be supported:*
 ```yaml
-Фигура 2.
+> AND filter - the notification is sent if all internal filters are satisfied;
+> OR filter - the notification is sent if at least one of the internal filters is satisfied;
+> N of M filter - the notification is sent if at least N out of M filters are satisfied.
+For example: "I want at least 2 out of 3 to be satisfied – [diesel, Audi, after 2003]".
 ```
+#### Solution: **Composite Pattern**
+- **Composite Pattern** is a structural design pattern that allows building hierarchies of objects where individual objects and groups of objects can be treated in the same way. This is achieved by defining a unified interface, in this case `Filter<T>`, which can be implemented both by individual filters - `RangeFilter`, `ExactValueFilter`, `CaseInsensitiveFilter` - and by composite filters. such as `AndFilter`, `OrFilter`, `NotFilter` and `NOfMFilter`:
+    - **Component interface** `Filter<T>`: All filters implement the same `Filter` interface, which provides a unified way of working with them;
+    - **Leaf Components**: `RangeFilter`, `ExactValueFilter` and `CaseInsensitiveFilter`. These are the basic filters that implement specific filtering logic for a given object;
+    - **Composite Components**: `AndFilter` - requires all nested filters to return true in order to return true; `OrFilter` - returns true if at least one nested filter returns true; `NotFilter` - inverts the result of the nested filter; and `NOfMFilter` - returns true if at least n of the nested filters return true.
 
-## Седмица 07 - Сложни Филтри
-- Задачата за Седмица 7 е следната: *В момента NotificationRule съдържа масив от правила, които NotificationService изисква да бъдат изпълнени изцяло, преди да изпрати нотификация. Това означава, че всички условия в списъка трябва да бъдат изпълнени едновременно. Клиентите изискват възможност за дефиниране на по-сложни логически операции между филтрите, за да могат да задават по-гъвкави правила за нотификации.
-За целта трябва да се поддържат следните видове логически операции:*
-```yaml
-> И (AND) филтър – нотификацията се изпраща, ако всички вътрешни филтри са изпълнени;
-> ИЛИ (OR) филтър – нотификацията се изпраща, ако поне един от вътрешните филтри е изпълнен;
-> N от M филтър – нотификацията се изпраща, ако поне N от M филтри са изпълнени.
-Например: "Искам поне 2 от 3 да са изпълнени – [дизел, Ауди, след 2003]".
-```
-> *Solution:* Composite Pattern.
-
-- Composite Pattern е структурен шаблон, който позволява да изграждане на йерархии от обекти, където индивидуалните обекти и групите от обекти могат да се третират по един и същи начин. Това се постига чрез дефиниране на унифициран интерфейс, в случая Filter<T>, който може да бъде имплементиран както от отделни филтри - RangeFilter, ExactValueFilter, CaseInsensitiveFilter, така и от композиционни филтри AndFilter, OrFilter, NotFilter, NOfMFilter;
-- Компонентен интерфейс (Filter<T>): Всички филтри имплементират един и същ интерфейс Filter, което осигурява унифициран начин за работа с тях;
-- Листови компоненти (Leaf Components): RangeFilter, ExactValueFilter и CaseInsensitiveFilter;
-Това са основните филтри, които изпълняват конкретна логика за филтриране на даден обект.
-- Композитни компоненти (Composite Components): AndFilter – изисква всички вложени филтри да върнат true, за да върне true, OrFilter – връща true, ако поне един от вложените филтри върне true, NotFilter – обръща резултата на вложения филтър, и NOfMFilter – връща true, ако поне n от вложените филтри върнат true.
-
-## Седмица 08 - История на Обява
-- Memento Pattern е използван, за да се съхранява и възстановява състоянието на обект от тип Listing. Това позволява връщане към предишни състояния - за операции за undo/redo;
-- ListingOriginator отговаря за създаването на моментни снимки на текущото състояние и може да възстановява предишно състояние;
-- ListingMemento осигурява метод за извличане на това състояние - getListingSnapshot();
-- ListingCaretaker управлява стек от моментни снимки, запазвайки различните състояния на Listing. Позволява връщане назад в историята чрез метода restoreState(int).
+## **Week 08** - **Listing History**
+- **Memento Pattern** is used to store and restore the state of a Listing object. This allows reverting to previous states, enabling undo/redo operations:
+    - `ListingOriginator` is responsible for creating snapshots of the current state and can restore a previous state;
+    - `ListingMemento` provides a method to retrieve this state - `getListingSnapshot()`;
+    - `ListingCaretaker` manages a stack of snapshots, preserving the different states of the `Listing`. It allows going back in history through the method `restoreState(int)`.
 
 ![listing_history](https://github.com/stoyan-stunji/fmi-dp-mobilebg/blob/main/docs/listing_history.JPG)
-```yaml
-Фигура 3.
-```
 
-## Седмица 09 - ID Генератор
-- Singleton Pattern е шаблон, който гарантира, че даден клас има само една единствена инстанция и предоставя глобална точка за достъп до него. Контролира достъпа до споделен ресурс - тук, всеки потребител има уникален номер, инкрементирайки номера на последния регистриран клиент.
+## **Week 09** - **User ID Generator**
+- **Singleton Pattern** is a design pattern that ensures a class has only one single instance and provides a global point of access to it. It controls access to a shared resource - in this case, each user is assigned a unique number by incrementing the number of the last registered client.
 
-## Седмица 10 - Анализатор
-*Бележка: Parser – в този документ да се разбира като „анализатор“.*
-- Задачата за Седмица 10 е: *Реализирайте клас, който имплементира интерфейса Searcher. Този клас трябва да приема колекция от обяви и заявка (query) и да връща само тези коли, които отговарят на критериите, зададени в заявката. Входът е списък с обяви, където има определени атрибути (например brand, model и други), и стринг заявка (query string), който описва критериите за търсене. Дадени са:*
+## **Week 10** - **Parser**
+- The task for Week 10 is: *Create a class that implements the Searcher interface. This class should accept a collection of listings and a query, and return only those cars that meet the criteria specified in the query. The input is a list of listings, each with certain attributes (e.g. brand, model and etc.) and a query string that describes the search criteria. The following are provided:*
 ```yaml
-> Клас QueryParser, който преобразува заявката в Полски запис (Prefix notation);
-> Интерфейс Searcher, който трябва да бъде имплементиран;
-> Клас QueryTester, който тества вашата имплементация и предоставя примери за синтаксиса на заявките.
+> Class QueryParser, which converts the query into Prefix notation;
+> Interface Searcher, which must be implemented;
+> Class QueryTester, which tests your implementation and provides examples of query syntax.
 ```
-> *Solution:* Interpreter Pattern.
-- Interpreter Pattern е поведенчески шаблон за, който се използва за интерпретиране на домейн-специфичен език (DSL). Основната идея е да се дефинира граматика за езика и да се осигури механизъм за интерпретация на изразите.
-- Класът QueryParser преобразува заявката в обратна полска нотация (RPN). Разделя заявката на условия (като brand = 'bmw') и оператори (|, &). Използва стек, за да обработи приоритетите на операторите и да генерира постфиксно представяне на заявката;
-- SearcherImplementation – интерпретатор на заявката. Този клас използва резултата от QueryParser и прилага шаблона Interpreter върху обектите от тип Listing.
-- За обработка на AND и OR операторите се използват AndFilter и OrFilter.
+#### Solution: **Interpreter Pattern**
+- **Interpreter Pattern** is a behavioral design pattern used to interpret a **domain-specific language** (`DSL`). The main idea is to define a grammar for the language and provide a mechanism to interpret expressions.
+    - The `QueryParser` class converts the query into **Reverse Polish Notation** (`RPN`). It splits the query into conditions (e.g. `brand = 'bmw'`) and operators (`|` and `&`). It uses a stack to handle operator precedence and generate a postfix representation of the query;
+    - `SearcherImplementation` is the query interpreter. This class uses the output from `QueryParser` and applies the **Interpreter pattern** to objects of type `Listing`;
+    - `AndFilter` and `OrFilter` are used to process the `AND` and `OR` operators.
 
 ![parser](https://github.com/stoyan-stunji/fmi-dp-mobilebg/blob/main/docs/parser.JPG)
-```yaml
-Фигура 4.
-```
 
-## Седмица 11 - История на Продукт
-- Memento Pattern е използван, за да се съхранява и възстановява състоянието на обект от тип Product. Това позволява връщане към предишни състояния – за операции по undo/redo;
-- ProductOriginator отговаря за създаването на моментни снимки на текущото състояние и може да възстановява предишно състояние;
-- ProductMemento осигурява метод за извличане на това състояние – getProductSnapshot();
-- ProductCaretaker управлява стек от моментни снимки, запазвайки различните състояния на Product. Позволява връщане назад в историята чрез метода restoreState(int);
-- В допълнение е имплементиран клас ProductGraph, който генерира линейна графика, показваща направените промените в цената на определен продукт на дадена дата. Представен е и средната цена.
+## **Week 11** - **Product History**
+- **Memento Pattern** is used to store and restore the state of a `Product` object. This allows reverting to previous states - for undo/redo operations;
+    - `ProductOriginator` is responsible for creating snapshots of the current state and can restore a previous state;
+    - `ProductMemento` provides a method to retrieve this state - `getProductSnapshot()`;
+    - `ProductCaretaker` manages a stack of snapshots, preserving the different states of the `Product`. It allows going back in history through the method `restoreState(int)`;
+- Additionally, a `ProductGraph` class has been implemented, which generates a linear graph showing the changes in the price of a specific product on given dates. The average price is also displayed.
 
 ![product_history](https://github.com/stoyan-stunji/fmi-dp-mobilebg/blob/main/docs/product_history.png)
-```yaml
-Фигура 5.
-```
 
 ## Седмица 12 - Фабрика за Продукти
 - Factory Pattern предоставя интерфейс за създаване на обекти в суперклас, като позволява на подкласовете да определят типа на създаваните обекти;
