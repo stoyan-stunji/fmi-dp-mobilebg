@@ -186,12 +186,15 @@ public class ListingService {
 - [Design Patterns](https://refactoring.guru/design-patterns)
 - [Screaming Architecture](https://blog.cleancoder.com/uncle-bob/2011/09/30/Screaming-Architecture.html)
 - [SOLID Principles](https://en.wikipedia.org/wiki/SOLID)
-- [OOP Principles 1](https://github.com/stoyan-stunji/fmi-oop-database)
-- [OOP Principles 2](https://github.com/stoyan-stunji/oop-autumn)
 
 ## **Concepts**
-- **Coupling** refers to the degree of interdependence between software modules. **High coupling** means that modules are tightly connected, resulting in dependencies between them. Changes in one module can affect other modules. **Low coupling** means that modules are independent of each other and changes in one module have minimal impact on the others.
-- **Cohesion** refers to the degree to which the elements within a module work together to achieve a single, well-defined purpose. **High cohesion** means that the elements in the module are closely related and focused on one specific responsibility. **Low cohesion** means that the elements in the module are loosely related and perform multiple unrelated tasks, making the code harder to maintain, extend and understand.
+- **Coupling** refers to the degree of interdependence between software modules. **High coupling** means that modules are tightly connected, resulting in dependencies between them. Changes in one module can affect other modules. **Low coupling** means that modules are independent of each other and changes in one module have minimal impact on the others;
+- **Cohesion** refers to the degree to which the elements within a module work together to achieve a single, well-defined purpose. **High cohesion** means that the elements in the module are closely related and focused on one specific responsibility. **Low cohesion** means that the elements in the module are loosely related and perform multiple unrelated tasks, making the code harder to maintain, extend and understand;
+- **CRUD** is an acronym that stands for `Create`, `Read`, `Update` and Delete - the four fundamental operations that form the backbone of how we interact with persistent data in applications. These four operations provide a complete model for managing data throughout its lifecycle:
+    - `Create`: The operation that inserts new data records into a storage system - adding a new user account, uploading a photo or placing an order;
+    - `Read`: The operation that retrieves existing data from a system - searching for a product, viewing a profile or generating a report;
+    - `Update`: The operation that modifies existing data without creating a new record - editing profile information, changing a password or updating inventory counts;
+    - `Delete`: The operation that removes unwanted data from the system - removing a social media post, canceling an order or archiving old records.
 
 ## **Fun Fact**
 - The name of this program is based on this song: [Подуене Блус Бенд - Таратайка](https://www.youtube.com/watch?v=EqRddn_Tq9w)
