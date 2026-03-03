@@ -127,64 +127,73 @@ For example: "I want at least 2 out of 3 to be satisfied – [diesel, Audi, afte
 
 ![languages](https://github.com/stoyan-stunji/fmi-dp-mobilebg/blob/main/docs/languages.png)
 
-## Седмица 14 - Конзола
-- Command Paterrn e поведенчески шаблон, който преобразува заявката в самостоятелен обект, наречен команда. С помощта на този шаблон може да се „улови“ всеки компонент на заявката, включително обекта, който притежава метода, параметрите на метода и самия метод;
-- Command Interface: Интерфейсът на командата е като наръчник, който всички класове с команди следват;
-- Concrete Command Classes: Това са конкретните команди, като например създай обява, изтрий обява, регистрирай потребител и т.н.;
-- Invoker: Съдържа препратка към команда, но не навлиза в подробности за това как тя работи. Като бутон – изпълни;
-- Receiver: Устройството, което знае как да изпълни действителната операция, свързана с командата – терминала в случая.
+## **Week 14** - **Console**
+- **Command Patterrn** is a behavioral design pattern that transforms a request into a standalone object called a command. Using this pattern, every component of the request can be “captured”, including the object that owns the method, the method’s parameters and the method itself;
+    - `Command Interface`: Acts like a manual that all command classes follow;
+    - `Concrete Command Classes`: These are the specific commands, such as create listing, delete listing, register user and etc.;
+    - `Invoker`: Holds a reference to a command, but does not concern itself with how it works. Like a button - execute;
+    - `Receiver`: The component that knows how to carry out the actual operation associated with the command – in this case, the terminal.
+- Two modules: one for commands, specific to the `User`, and another, specific to the `Listing`.
 
 ![gui](https://github.com/stoyan-stunji/fmi-dp-mobilebg/blob/main/docs/gui.png)
-```yaml
-Фигура 7.
+
+## **Week 15** - **Dependency Injection**
+- **Dependency Injection** is a design principle where an object receives its dependencies from an external source rather than creating them itself. This decouples components, making code more modular, testable and flexible.
+- Currently, the adding of a `Listing` is coupled with the standard input and output. However, DI can be implemented by defining an interface for input/output e.g. `ListingIO`, then implementing concrete classes for console input/output - `readInput()` and `writeOutput(String message)` and, lastly, injecting the dependency into the service:
+``` java
+public class ListingService {
+    private final ListingIO listingIO;
+
+    public ListingService(ListingIO listingIO) {
+        this.listingIO = listingIO;
+    }
+
+    public void addListing() {
+        String data = listingIO.readInput();
+        // process the listing
+        listingIO.writeOutput("Listing added: " + data);
+    }
+}
 ```
-
-## Седмица 15 - Потребителски Интерфейс
-
-![problem](https://github.com/stoyan-stunji/fmi-dp-mobilebg/blob/main/docs/problem.png)
-```yaml
-Фигура 8.
-```
-
-> *Solution:* Dependency Injection.
-
-## Презентиране:
-1. Initial Demo - Показва как се добавят и изтриват потребители и обяви;
-2. Filters Demo - Показва как се филтрират обяви;
-3. Subscribtion Demo - Показва как регистриран потребител се абонира за известия въз основа на различни филтри;
-4. Listing History Demo - Показва историята на промените, направени в дадена обява;
-5. Product History Demo -  Показва историята на промените, направени в даден продукт, и представя графика;
-6. Parser Demo - Показва как се търсят обяви чрез филтри;
+- This way, `ListingService` no longer depends directly on `System.in` or `System.out`.
+  
+## **Presentation**:
+1. Initial Demo - Shows how users and listings are added and deleted;
+2. Filters Demo - Shows how listings are filtered;
+3. Subscribtion Demo - Shows how a registered user subscribes to notifications based on different filters;
+4. Listing History Demo - Shows the history of changes made to a listing;
+5. Product History Demo - Shows the history of changes made to a product and displays a graph;
+6. Parser Demo - Shows how listings are searched using filters;
 7. Console:
-- Езици - Немски и Английски;
-- Регистриране;
-- Влизане в системата;
-- Излизане от системата;
-- Добавяне и изтриване на обяви, когато потребител е влезъл в системата;
-- Преглед на всички обяви и всички потребители.
+- Languages - German and English;
+- Registration;
+- Login;
+- Logout;
+- Adding and deleting listings when a user is logged in;
+- Viewing all listings and all users.
 
-## Заключение:
-- Проектът демонстрира ефективното прилагане на различни методологии за проектиране, анализ и имплементация. Основните функционалности включват управление на обяви, филтриране, търсене, история на цените и ролеви модели за различни типове потребители. Използването на различни design patterns осигурява структуриран и стандартизиран подход към управлението на данните, което допринася за по-лесна поддръжка и разширяемост. По този начин проектът не само предлага практическо приложение на теоретични концепции, но и демонстрира значението на добре организираната архитектура. В заключение, разработката подчертава важността на качественото структуриране на софтуерните решения за дългосрочна ефективност и гъвкавост.
+## **Conclusion**:
+- The project demonstrates the effective application of various methodologies for design, analysis and implementation. The main functionalities include listing management, filtering, searching, price history and role-based models for different types of users. The use of various design patterns provides a structured and standardized approach to data management, contributing to easier maintenance and scalability. In this way, the project not only offers a practical application of theoretical concepts, but also highlights the importance of a well-organized architecture. In conclusion, the development emphasizes the significance of high-quality software structuring for long-term efficiency and flexibility.
 
-## Fix:
-- Decouple добавянето на обяви от Standard Input & Output чрез Dependency Injection;
-- Да се добавят функционалностите от Demo 2, 3, 4, 5 към Console GUI;
-- Да се (до)оправи Parser;
-- Да се изнесе ID Generator в отделен модул;
-- Да се приложи Console Pattern за Console GUI.
+## **Future Fixes**:
+- Decouple the addition of listings from Standard Input & Output using Dependency Injection;
+- Add the functionalities from Demo 2, 3, 4, and 5 to the Console GUI;
+- Fix and/or improve the Parser;
+- Move the ID Generator to a separate module;
+- Apply the Command Pattern for the Console GUI.
 
-## Използвана Литература
+## **Literature**
 - [Design Patterns](https://refactoring.guru/design-patterns)
 - [Screaming Architecture](https://blog.cleancoder.com/uncle-bob/2011/09/30/Screaming-Architecture.html)
 - [SOLID Principles](https://en.wikipedia.org/wiki/SOLID)
 - [OOP Principles 1](https://github.com/stoyan-stunji/fmi-oop-database)
 - [OOP Principles 2](https://github.com/stoyan-stunji/oop-autumn)
 
-## Понятия
-- Coupling се отнася до степента на взаимозависимост между софтуерните модули. High Coupling означава, че модулите са тясно свързани, което води до зависимост между тях. Промени в един модул могат да засегнат други модули. Low Coupling означава, че модулите са независими един от друг. Промени в един модул оказват минимално влияние върху останалите.
-- Cohesion се отнася до степента, в която елементите в даден модул работят заедно, за да изпълнят единна и добре дефинирана цел. High Cohesion означава, че елементите в модула са тясно свързани и се фокусират върху една конкретна отговорност. Low Cohesion означава, че елементите в модула са слабо свързани и изпълняват множество несвързани задачи, което затруднява поддръжката, разширяването и разбирането на кода.
+## **Concepts**
+- **Coupling** refers to the degree of interdependence between software modules. **High coupling** means that modules are tightly connected, resulting in dependencies between them. Changes in one module can affect other modules. **Low coupling** means that modules are independent of each other and changes in one module have minimal impact on the others.
+- **Cohesion** refers to the degree to which the elements within a module work together to achieve a single, well-defined purpose. **High cohesion** means that the elements in the module are closely related and focused on one specific responsibility. **Low cohesion** means that the elements in the module are loosely related and perform multiple unrelated tasks, making the code harder to maintain, extend and understand.
 
-## Забавен Факт
-- Името на програмата е базирано на тази песен: [Подуене Блус Бенд - Таратайка](https://www.youtube.com/watch?v=EqRddn_Tq9w)
+## **Fun Fact**
+- The name of this program is based on this song: [Подуене Блус Бенд - Таратайка](https://www.youtube.com/watch?v=EqRddn_Tq9w)
   
 ![poduene](https://github.com/stoyan-stunji/fmi-dp-mobilebg/blob/main/docs/poduene.jpg)
